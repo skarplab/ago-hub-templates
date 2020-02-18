@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArcGIS Online Hub Templates</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="./calcite-bootstrap/calcite-bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./calcite-bootstrap/bootstrap.min.js"></script>
+</head>
+<body class="line-numbers">
+    <h1>ArcGIS Hub Code Templates</h1>
+    <section>    
+<div id="app" class="col-sm-12">
+    <h2>Big Custom Card</h2>
+
+    <!-- EDITOR FORM -->
+    <div id="inputform" class="col-xs-12 col-sm-5">
+            <h3>Parameters</h3>
+            <label for="item-name">Item Name</label>
+            <input class="form-control" name="item-name" v-model="item.name">
+
+            <label for="item-url">Item URL</label>
+            <input class="form-control" name="item-url" v-model="item.url">
+
+            <label for="image-url">Image URL</label>
+            <input class="form-control" name="image-url" v-model="image.url">
+
+            <label for="image-alt">Image Alt Text</label>
+            <input class="form-control" name="image-alt" v-model="image.alt">
+
+            <label for="description">Description</label>
+            <textarea class="form-control" name="description" v-model="description" rows="10"></textarea>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="col-xs-12 col-sm-7 featured-gallery">
+        <h3>Preview</h3>
+        <div class="col-sm-12 thumbnail text-center">
+            <a v-bind:href=item.url target="_blank"><img v-bind:alt=image.alt class="img-responsive" v-bind:src=image.url></a>
+            <div class="caption">
+                <h4>{{ item.name }}<span><a type="button" class="btn btn-primary pull-right" v-bind:href=item.url target="_blank">Open</a></span></h4>
+            </div>
+        </div>
+        <div class="col-sm-12 description">
+            <p>{{ description }}</p>
+        </div>
+    </div>
+
+    <!-- CODE SNIPPET -->
+    <div class="col-sm-12">
+    <pre>
+        <code>
+&lt;div class="col-xs-12 col-sm-8 col-sm-offset-2 featured-gallery">
+    &lt;div</span> class="col-sm-12 thumbnail text-center">
+        &lt;a href="{{ item.url }}" target="_blank">&lt;img alt="{{image.alt}}" class="img-responsive" src="{{ image.url }}">&lt;/a>
+        &lt;div class="caption">
+            &lt;h4>{{ item.name }}&lt;span>&lt;a type="button" class="btn btn-primary pull-right" href="{{ item.url }}" target="_blank">Open&lt;/a>&lt;/span>&lt;/h4>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="col-sm-12 description">
+        &lt;p>{{ description }}&lt;/p>
+    &lt;/div>
+&lt;/div>
+</code>
+</pre>
+</div>
+</div>
+    </section>
+    <script src="app.js"></script>
+</body>
+</html>
